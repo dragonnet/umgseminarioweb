@@ -8,4 +8,5 @@ public interface IPersonaService {
 	public String save(Persona persona);
 	public List<Persona> findAll();
 	public Persona findById(Integer id);
+	public String update(Persona persona);
 }

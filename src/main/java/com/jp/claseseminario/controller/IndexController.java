@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jp.claseseminario.entity.Persona;
@@ -47,6 +48,11 @@ public class IndexController {
 	@GetMapping(value = "/persona/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public Persona findById(@PathVariable("id") Integer id){
 		return personaService.findById(id);
+	}
+	
+	@RequestMapping(value = "/persona", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.TEXT_PLAIN_VALUE)
+	public String update(@RequestBody Persona persona) {
+		return personaService.update(persona);
 	}
 
 }

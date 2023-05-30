@@ -40,4 +40,20 @@ public class PersonaServiceImpl implements IPersonaService {
 			
 	}
 
+	@Override
+	public String update(Persona persona) {
+		if(persona.getId() != null && listPersonas != null) {
+			for (Persona elemento : listPersonas) {
+				//validamos que el id de la persona sea igual al que estamos buscando
+				if(persona.getId() == elemento.getId()) {
+					elemento.setNombre(persona.getNombre());
+					elemento.setPeso(persona.getPeso());
+					return "Updated";
+				}
+			}
+		}
+			
+		return null;
+	}
+
 }
